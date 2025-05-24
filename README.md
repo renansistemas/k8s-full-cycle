@@ -55,3 +55,18 @@ kind create cluster
 ```bash
 kubectl get nodes
 ```
+
+## Explicação dos Arquivos YAML
+
+No diretório deste projeto, você encontrará três arquivos principais para orquestração no Kubernetes:
+
+### pod.yaml
+Define um **Pod**, que é a menor unidade executável no Kubernetes. O arquivo `pod.yaml` especifica um ou mais containers que serão executados juntos, compartilhando recursos como rede e armazenamento. Use este arquivo para criar um pod isolado, geralmente para testes ou aplicações simples.
+
+### deployment.yaml
+Define um **Deployment**, que gerencia a criação e atualização de múltiplas réplicas de pods. O `deployment.yaml` garante alta disponibilidade e atualização controlada dos pods. Ele permite escalar a aplicação facilmente e realizar rollouts/rollbacks automáticos em caso de falhas.
+
+### service.yaml
+Define um **Service**, responsável por expor os pods para acesso interno ou externo ao cluster. O `service.yaml` cria um endpoint estável para acessar os pods, mesmo que eles sejam recriados ou substituídos pelo deployment. Pode ser configurado como ClusterIP, NodePort ou LoadBalancer, dependendo da necessidade de exposição.
+
+Esses arquivos juntos permitem que você defina, gerencie e exponha sua aplicação de forma padronizada e escalável no Kubernetes.
